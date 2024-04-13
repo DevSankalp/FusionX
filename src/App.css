@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: questrial, sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  color: black;
+  scroll-behavior: smooth;
+}
+.card-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Card.css */
+.card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  transition: transform 0.2s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.card-details {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.card-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.card-email {
+  font-size: 1rem;
+  color: #777;
+}
+
+/* Forums */
+.neo-icon {
+  background: #9f70fd;
+  color: #fff;
+  box-shadow: 0px 0px 7px #9ea4b2, 0px 0px 7px #ffffff;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.neo-icon:active {
+  box-shadow: inset 0px 0px 10px #9ea4b2, inset 0px 0px 10px #ffffff;
+  background-color: #fff;
+  color: #000;
+}
+
+.neo-icon:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.neo-btn {
+  background: #9f70fd;
+  color: #fff;
+  box-shadow: 0px 0px 7px #9ea4b2, 0px 0px 7px #ffffff;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.neo-btn:active {
+  box-shadow: inset 0px 0px 10px #9ea4b2, inset 0px 0px 10px #ffffff;
+}
+
+.neo-btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.glassmorph {
+  backdrop-filter: blur(4px) saturate(180%);
+  -webkit-backdrop-filter: blur(4px) saturate(180%);
+  box-shadow: 0px 0px 10px #9ea4b2;
+}
+
+.glassmorph1::before {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 0;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+}
+
+/* Radio-Btn */
+.checkmark {
+  position: absolute;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: #c8ffe0;
+  border-radius: 50%;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: #9f70fd;
+  color: #fff;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  top: 5px;
+  left: 5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}
+
+/* CheckBox */
+.checkbox-checkmark {
+  position: absolute;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: #c8ffe0;
+  border-radius: 20%;
+}
+
+.checkbox-container input:checked ~ .checkbox-checkmark {
+  background-color: #9f70fd;
+  color: #fff;
+}
+
+.checkbox-container input:checked ~ .checkbox-checkmark:after {
+  display: block;
+}
+
+.checkbox-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container .checkbox-checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
