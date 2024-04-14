@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Card from "./Card";
-import Filters from "../Forum/Filters";
+import Filters from "./Filters";
 
 function CardList({ data }) {
   const [filteredData, setFilteredData] = useState(data);

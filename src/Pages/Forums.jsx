@@ -14,8 +14,8 @@ function Forums() {
   const [activeFilter, setActiveFilter] = React.useState(false);
   const [forumData] = useState({
     navData: {
-      name: [<BsFillFileEarmarkPostFill />, <PiChatsDuotone />],
-      title: ["new", "chats"],
+      name: [<BsFillFileEarmarkPostFill />],
+      title: ["new"],
     },
     feedData: {
       user1: {
