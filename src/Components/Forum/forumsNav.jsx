@@ -143,6 +143,13 @@ function Nav({
                 className="min-w-[400px] px-2 border-2 border-[#e0dbdb] rounded-sm text-lg"
               />
             </label>
+            <label htmlFor="link" className="flex flex-col">
+              <span className="text-xl font-black">Image Url</span>
+              <input
+                type="text"
+                className="min-w-[400px] px-2 border-2 border-[#e0dbdb] rounded-sm text-lg"
+              />
+            </label>
             <label htmlFor="description" className="flex flex-col">
               <span className="text-xl font-black">Description</span>
               <textarea className="min-w-[400px] px-2 min-h-[200px] border-2 border-[#e0dbdb] rounded-sm text-md" />

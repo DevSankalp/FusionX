@@ -29,8 +29,8 @@ function Filters({ tags, onFilter }) {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center gap-2">
-      <FormControl variant="outlined" style={{ width: "100px" }}>
+    <div className="flex flex-col md:flex-row w-full justify-center gap-2">
+      {/* <FormControl variant="outlined" style={{ width: "100px" }}>
         <InputLabel id="tag-filter-label">Tag</InputLabel>
         <Select
           labelId="tag-filter-label"
@@ -48,13 +48,15 @@ function Filters({ tags, onFilter }) {
             </MenuItem>
           ))}
         </Select>
-      </FormControl>
+      </FormControl> */}
 
       <TextField
         id="search"
         label="Search"
         variant="outlined"
         value={searchQuery}
+        fullWidth
+        className="max-w-[400px]"
         onChange={handleSearchChange}
       />
 

@@ -30,10 +30,10 @@ const AuthForm = ({ formType, background }) => {
       setPassword("");
       // Show success notification
       alert("Registration successful!");
-  
+
       // Post notification
       // await postNotification(email, name);
-  
+
       handleLogin(event, email, password, type);
     } catch (error) {
       // Show error notification
@@ -41,23 +41,23 @@ const AuthForm = ({ formType, background }) => {
     }
   };
 
-const postNotification = async (email, name) => {
-  try {
-    const response = await axios.post(
-      "http://localhost:1337/api/notifications",
-      {
-        data: {
-          email: email,
-          message: `Dear ${name}, Your Registration is Successful!`,
-        },
-      }
-    );
-    console.log("Notification posted successfully:", response.data);
-  } catch (error) {
-    console.error("Error posting notification:", error);
-    // Handle error if necessary
-  }
-};
+  const postNotification = async (email, name) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:1337/api/notifications",
+        {
+          data: {
+            email: email,
+            message: `Dear ${name}, Your Registration is Successful!`,
+          },
+        }
+      );
+      console.log("Notification posted successfully:", response.data);
+    } catch (error) {
+      console.error("Error posting notification:", error);
+      // Handle error if necessary
+    }
+  };
 
   const register = async (name, email, password) => {
     try {
@@ -77,7 +77,7 @@ const postNotification = async (email, name) => {
         password
       );
       const user = userCredential.user;
-      navigate("/Dashboard");
+      navigate("/Profile");
       setEmail("");
       setPassword("");
     } catch (error) {
@@ -106,7 +106,7 @@ const postNotification = async (email, name) => {
         axios
           .post("http://localhost:1337/api/userdata", { data: userData })
           .then((response) => {
-            navigate("/Dashboard");
+            navigate("/Profile");
           })
           .catch((error) => {
             // Show error notification for entry creation
@@ -155,55 +155,55 @@ const postNotification = async (email, name) => {
       {formType === "signUp" ? (
         <>
           <input
-  type="name"
-  placeholder="Full Name"
-  value={name}
-  onChange={(e) => setName(e.target.value)}
-  required
-  name="fullName"
-  className="bg-[#eee] focus-within:border-black border-2 my-2 px-4 py-3 text-sm rounded-lg w-full transition-all duration-500"
-/>
-<input
-  type="email"
-  placeholder="Email"
-  value={email}
-  onChange={(e) => setEmail(e.target.value)}
-  name="email"
-  required
-  className="bg-[#eee] focus-within:border-black border-2 my-2 px-4 py-3 text-sm rounded-lg w-full transition-all duration-500"
-/>
-<input
-  type="password"
-  placeholder="Password"
-  value={password}
-  onChange={(e) => setPassword(e.target.value)}
-  name="password"
-  required
-  className="bg-[#eee] focus-within:border-black border-2 my-2 px-4 py-3 text-sm rounded-lg w-full transition-all duration-500"
-/>
+            type="name"
+            placeholder="Full Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            name="fullName"
+            className="bg-[#eee] focus-within:border-black border-2 my-2 px-4 py-3 text-sm rounded-lg w-full transition-all duration-500"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            required
+            className="bg-[#eee] focus-within:border-black border-2 my-2 px-4 py-3 text-sm rounded-lg w-full transition-all duration-500"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            name="password"
+            required
+            className="bg-[#eee] focus-within:border-black border-2 my-2 px-4 py-3 text-sm rounded-lg w-full transition-all duration-500"
+          />
 
-<div className="my-2">
-  <label className="mr-4">
-    <input
-      type="radio"
-      value="Personal"
-      checked={selectedAccountType === "Personal"}
-      onChange={() => setSelectedAccountType("Personal")}
-      className="mr-2"
-    />
-    Personal
-  </label>
-  <label>
-    <input
-      type="radio"
-      value="Business"
-      checked={selectedAccountType === "Business"}
-      onChange={() => setSelectedAccountType("Business")}
-      className="mr-2"
-    />
-    Business
-  </label>
-</div>
+          <div className="my-2">
+            <label className="mr-4">
+              <input
+                type="radio"
+                value="Personal"
+                checked={selectedAccountType === "Personal"}
+                onChange={() => setSelectedAccountType("Personal")}
+                className="mr-2"
+              />
+              Personal
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="Business"
+                checked={selectedAccountType === "Business"}
+                onChange={() => setSelectedAccountType("Business")}
+                className="mr-2"
+              />
+              Business
+            </label>
+          </div>
         </>
       ) : (
         <>
@@ -268,7 +268,9 @@ const postNotification = async (email, name) => {
       )}
       {formType === "signUp" ? (
         <button
-          onClick={(event) => handleRegister(event, name, email, password, selectedAccountType)}
+          onClick={(event) =>
+            handleRegister(event, name, email, password, selectedAccountType)
+          }
           className={`shadow-[0_0_5px_rgba(0,0,0,.5)] active:shadow-[inset_0_0_5px_rgba(0,0,0,.5)] rounded-xl py-2 px-8 mt-8 md:mt-4 active:scale-[.98] ${`bg-[#240046] text-white hover:bg-white hover:text-[#240046]`}`}
         >
           {" "}
@@ -341,9 +343,7 @@ const Login = () => {
   };
 
   return (
-    <div
-      className={`flex flex-col items-center h-screen bg-[#f2ebfb]`}
-    >
+    <div className={`flex flex-col items-center h-screen bg-[#f2ebfb]`}>
       {/* Particles */}
       <div className="fixed -bottom-full md:-bottom-1/4">
         <ParticleSphere

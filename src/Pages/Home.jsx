@@ -114,12 +114,12 @@ function Home() {
       },
       buttonText: "Get Started",
       contactInfo: {
-        address: "Demo Address",
-        website: "Demo Link",
+        address:
+          "Plot No.2, Sector 17-A Yamuna Expressway, Opposite Buddha International Circuit, Greater Noida, Gautam Buddh Nagar, Uttar Pradesh 203201",
       },
       moreInfo: {
-        about: "Demo About",
-        website: "Demo Link",
+        about:
+          "FusionX's dynamic team drives innovation, collaboration, and growth in India's startup ecosystem through technology, strategic partnerships, and community engagement, fostering economic and social impact.",
       },
       socialIcons: {
         icons: [

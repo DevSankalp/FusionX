@@ -29,17 +29,19 @@ function Ranks({ addData, activeRank, setActiveRank }) {
       >
         <div className="w-full md:rounded-lg">
           <h1 className="text-md md:text-xl font-bold md:rounded-t-lg mb-2 pl-4 py-1 ">
-            Ranks
+            Ranking
           </h1>
           <div className="flex flex-col justify-center gap-1 px-2 pb-2 text-sm md:text-md">
-            {rankData.title.map((title, index) => (
-              <Link
+            {rankData.companies.map((company, index) => (
+              <a
                 key={index}
-                onClick={() => setActiveRank(!activeRank)}
+                href={company.url}
+                target="_blank"
                 className="p-2 hover:bg-[#9f70fd] hover:text-white rounded-lg cursor-pointer transition-all duration-500"
+                onClick={() => setActiveRank(!activeRank)}
               >
-                {title}
-              </Link>
+                {company.title}
+              </a>
             ))}
           </div>
         </div>

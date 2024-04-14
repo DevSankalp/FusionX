@@ -39,27 +39,13 @@ function Footer({ data }) {
           </Button>
         </div>
         <hr className="block sm:hidden h-[1px] w-[100%] border-black" />
-        <div className="flex flex-col gap-2 sm:gap-12 items-center sm:items-start">
-          <p>{contactInfo.address}</p>
-          <a
-            href={contactInfo.website}
-            className="w-[max-content] relative before:absolute before:bg-black before:bottom-0 before:left-0 before:w-[102%] before:h-[1.5px] sm:before:scale-x-0 lg:before:hover:scale-x-100 before:origin-left before:duration-500"
-          >
-            {contactInfo.website}
-          </a>
-        </div>
-        <div className="flex flex-col gap-2 sm:gap-12 items-center sm:items-start">
+        <div className="w-[90%] text-justify md:w-1/2 flex flex-col gap-8 sm:gap-12 items-center sm:items-start">
           <p>{moreInfo.about}</p>
-          <a
-            href={moreInfo.website}
-            className="w-[max-content] relative before:absolute before:bg-black before:bottom-0 before:left-0 before:w-[102%] before:h-[1.5px] sm:before:scale-x-0 lg:before:hover:scale-x-100 before:origin-left before:duration-500"
-          >
-            {moreInfo.website}
-          </a>
+          <p className="font-bold">{contactInfo.address}</p>
         </div>
       </div>
       <div className="flex flex-col sm:flex-row w-[80%] items-center sm:justify-between">
-        <p className="py-2 sm:py-8">© 2023 by FusionX</p>
+        <p className="py-2 sm:py-8">© 2024 by FusionX</p>
         <div className="flex items-center justify-end gap-2 sm:w-[40%] sm:py-8">
           {socialIcons.icons.map((icon, index) => (
             <p key={index} className="h-[100%] m-0">

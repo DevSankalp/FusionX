@@ -13,7 +13,6 @@ const ListPage = () => {
         { text: "Listings", link: "/List", active: true },
         { text: "Forums", link: "/Forums" },
         { text: "FX Careers", link: "/" },
-        { text: "Profile", link: "/Profile" },
         // Add more navigation items as needed
       ],
       link: "/login",
@@ -27,12 +26,12 @@ const ListPage = () => {
       },
       buttonText: "Get Started",
       contactInfo: {
-        address: "Demo Address",
-        website: "Demo Link",
+        address:
+          "Plot No.2, Sector 17-A Yamuna Expressway, Opposite Buddha International Circuit, Greater Noida, Gautam Buddh Nagar, Uttar Pradesh 203201",
       },
       moreInfo: {
-        about: "Demo About",
-        website: "Demo Link",
+        about:
+          "FusionX's dynamic team drives innovation, collaboration, and growth in India's startup ecosystem through technology, strategic partnerships, and community engagement, fostering economic and social impact.",
       },
       socialIcons: {
         icons: [
@@ -48,19 +47,109 @@ const ListPage = () => {
   };
   const dummyData = [
     {
-      name: "John Doe",
-      email: "johndoe@example.com",
-      image: "https://source.unsplash.com/random/300x400/?company",
+      name: "Alexander Johnson",
+      email: "alexander.johnson@example.com",
+      image: "https://source.unsplash.com/random/300x400/?businessman",
     },
     {
-      name: "Jane Smith",
-      email: "janesmith@example.com",
-      image: "https://source.unsplash.com/random/300x400/?employee",
+      name: "Emily White",
+      email: "emily.white@example.com",
+      image: "https://source.unsplash.com/random/300x400/?businesswoman",
     },
     {
-      name: "John Smith",
-      email: "johnsmith@example.com",
-      image: "https://source.unsplash.com/random/300x400/?customer",
+      name: "Michael Brown",
+      email: "michael.brown@example.com",
+      image: "https://source.unsplash.com/random/300x400/?executive",
+    },
+    {
+      name: "Olivia Martinez",
+      email: "olivia.martinez@example.com",
+      image: "https://source.unsplash.com/random/300x400/?professional",
+    },
+    {
+      name: "William Taylor",
+      email: "william.taylor@example.com",
+      image: "https://source.unsplash.com/random/300x400/?manager",
+    },
+    {
+      name: "Sophia Anderson",
+      email: "sophia.anderson@example.com",
+      image: "https://source.unsplash.com/random/300x400/?director",
+    },
+    {
+      name: "James Wilson",
+      email: "james.wilson@example.com",
+      image: "https://source.unsplash.com/random/300x400/?entrepreneur",
+    },
+    {
+      name: "Emma Johnson",
+      email: "emma.johnson@example.com",
+      image: "https://source.unsplash.com/random/300x400/?leader",
+    },
+    {
+      name: "Matthew Davis",
+      email: "matthew.davis@example.com",
+      image: "https://source.unsplash.com/random/300x400/?professional",
+    },
+    {
+      name: "Isabella Rodriguez",
+      email: "isabella.rodriguez@example.com",
+      image: "https://source.unsplash.com/random/300x400/?businesswoman",
+    },
+    {
+      name: "Daniel Garcia",
+      email: "daniel.garcia@example.com",
+      image: "https://source.unsplash.com/random/300x400/?businessman",
+    },
+    {
+      name: "Sophia Smith",
+      email: "sophia.smith@example.com",
+      image: "https://source.unsplash.com/random/300x400/?manager",
+    },
+    {
+      name: "Ethan Brown",
+      email: "ethan.brown@example.com",
+      image: "https://source.unsplash.com/random/300x400/?professional",
+    },
+    {
+      name: "Olivia Johnson",
+      email: "olivia.johnson@example.com",
+      image: "https://source.unsplash.com/random/300x400/?director",
+    },
+    {
+      name: "Noah Anderson",
+      email: "noah.anderson@example.com",
+      image: "https://source.unsplash.com/random/300x400/?entrepreneur",
+    },
+    {
+      name: "Ava Martinez",
+      email: "ava.martinez@example.com",
+      image: "https://source.unsplash.com/random/300x400/?leader",
+    },
+    {
+      name: "Liam Taylor",
+      email: "liam.taylor@example.com",
+      image: "https://source.unsplash.com/random/300x400/?businessman",
+    },
+    {
+      name: "Charlotte Wilson",
+      email: "charlotte.wilson@example.com",
+      image: "https://source.unsplash.com/random/300x400/?businesswoman",
+    },
+    {
+      name: "Mason Davis",
+      email: "mason.davis@example.com",
+      image: "https://source.unsplash.com/random/300x400/?professional",
+    },
+    {
+      name: "Amelia Rodriguez",
+      email: "amelia.rodriguez@example.com",
+      image: "https://source.unsplash.com/random/300x400/?manager",
+    },
+    {
+      name: "Benjamin Garcia",
+      email: "benjamin.garcia@example.com",
+      image: "https://source.unsplash.com/random/300x400/?professional",
     },
     // Add more data entries as needed
   ];

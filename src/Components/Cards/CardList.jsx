@@ -25,8 +25,8 @@ function CardList({ data }) {
 
   return (
     <div className="flex flex-col items-center gap-4 pt-12 min-h-[100vh]">
-      <div className="App flex flex-col gap-4 items-center">
-        <h1 className="text-xl">Filter and Search</h1>
+      <div className="App flex flex-col gap-4 items-center w-full">
+        <h1 className="text-3xl font-black">Filter and Search</h1>
         <Filters tags={["Tag1", "Tag2", "Tag3"]} onFilter={handleFilter} />
       </div>
       <div className="cards">
