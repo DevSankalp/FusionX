@@ -18,23 +18,46 @@ const AuthForm = ({ formType, background }) => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  // handleRegister
-  const handleRegister = async (event, name, email, password) => {
-    event.preventDefault(); // Prevents default form submission behavior
+  const [selectedAccountType, setSelectedAccountType] = useState(null);
 
+  const handleRegister = async (event, name, email, password, type) => {
+    event.preventDefault();
     try {
+      // Proceed with registration
       await register(name, email, password);
       setEmail("");
       setName("");
       setPassword("");
       // Show success notification
       alert("Registration successful!");
-      handleLogin(event, email, password);
+  
+      // Post notification
+      // await postNotification(email, name);
+  
+      handleLogin(event, email, password, type);
     } catch (error) {
       // Show error notification
       alert("Registration failed. Please try again.");
     }
   };
+
+const postNotification = async (email, name) => {
+  try {
+    const response = await axios.post(
+      "http://localhost:1337/api/notifications",
+      {
+        data: {
+          email: email,
+          message: `Dear ${name}, Your Registration is Successful!`,
+        },
+      }
+    );
+    console.log("Notification posted successfully:", response.data);
+  } catch (error) {
+    console.error("Error posting notification:", error);
+    // Handle error if necessary
+  }
+};
 
   const register = async (name, email, password) => {
     try {
@@ -61,42 +84,44 @@ const AuthForm = ({ formType, background }) => {
       alert("Login failed. Please check your credentials.");
     }
   };
-  // const handleLoginFirst = async (event, email, password) => {
-  //   event.preventDefault();
-  //   try {
-  //     const userCredential = await signInWithEmailAndPassword(
-  //       auth,
-  //       email,
-  //       password
-  //     );
-  //     const currentUser = auth.currentUser;
-  //     if (currentUser) {
-  //       const userData = {
-  //         uid: currentUser.uid,
-  //         email: currentUser.email,
-  //         name: currentUser.displayName || "Default Name", // Use display name or a default name if not available
-  //       };
+  const handleLoginFirst = async (event, email, password, type) => {
+    event.preventDefault();
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const currentUser = auth.currentUser;
+      if (currentUser) {
+        const userData = {
+          uid: currentUser.uid,
+          email: currentUser.email,
+          type: type,
+          password: password,
+          name: currentUser.displayName || "Default Name", // Use display name or a default name if not available
+        };
 
-  //       // Make a POST request to your API using Axios to create user data entry
-  //       axios
-  //         .post("http://localhost:1337/api/userdata", { data: userData })
-  //         .then((response) => {
-  //           navigate("/Dashboard");
-  //         })
-  //         .catch((error) => {
-  //           // Show error notification for entry creation
-  //           alert("Error creating user data entry. Please try again.");
-  //         });
-  //     } else {
-  //       // If currentUser is null, show error notification
-  //       alert("User not found. Please log in again.");
-  //     }
-  //     setEmail("");
-  //     setPassword("");
-  //   } catch (error) {
-  //     alert("Login failed. Please check your credentials.");
-  //   }
-  // };
+        // Make a POST request to your API using Axios to create user data entry
+        axios
+          .post("http://localhost:1337/api/userdata", { data: userData })
+          .then((response) => {
+            navigate("/Dashboard");
+          })
+          .catch((error) => {
+            // Show error notification for entry creation
+            alert("Error creating user data entry. Please try again.");
+          });
+      } else {
+        // If currentUser is null, show error notification
+        alert("User not found. Please log in again.");
+      }
+      setEmail("");
+      setPassword("");
+    } catch (error) {
+      alert("Login failed. Please check your credentials.");
+    }
+  };
 
   const [showResetModal, setShowResetModal] = useState(false);
   const [emailForReset, setEmailForReset] = useState("");
@@ -130,32 +155,55 @@ const AuthForm = ({ formType, background }) => {
       {formType === "signUp" ? (
         <>
           <input
-            type="name"
-            placeholder="Full Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            name="fullName"
-            className="bg-[#eee] focus-within:border-black border-2 my-2 px-4 py-3 text-sm rounded-lg w-full transition-all duration-500"
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            name="email"
-            required
-            className="bg-[#eee] focus-within:border-black border-2 my-2 px-4 py-3 text-sm rounded-lg w-full transition-all duration-500"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            name="password"
-            required
-            className="bg-[#eee] focus-within:border-black border-2 my-2 px-4 py-3 text-sm rounded-lg w-full transition-all duration-500"
-          />
+  type="name"
+  placeholder="Full Name"
+  value={name}
+  onChange={(e) => setName(e.target.value)}
+  required
+  name="fullName"
+  className="bg-[#eee] focus-within:border-black border-2 my-2 px-4 py-3 text-sm rounded-lg w-full transition-all duration-500"
+/>
+<input
+  type="email"
+  placeholder="Email"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+  name="email"
+  required
+  className="bg-[#eee] focus-within:border-black border-2 my-2 px-4 py-3 text-sm rounded-lg w-full transition-all duration-500"
+/>
+<input
+  type="password"
+  placeholder="Password"
+  value={password}
+  onChange={(e) => setPassword(e.target.value)}
+  name="password"
+  required
+  className="bg-[#eee] focus-within:border-black border-2 my-2 px-4 py-3 text-sm rounded-lg w-full transition-all duration-500"
+/>
+
+<div className="my-2">
+  <label className="mr-4">
+    <input
+      type="radio"
+      value="Personal"
+      checked={selectedAccountType === "Personal"}
+      onChange={() => setSelectedAccountType("Personal")}
+      className="mr-2"
+    />
+    Personal
+  </label>
+  <label>
+    <input
+      type="radio"
+      value="Business"
+      checked={selectedAccountType === "Business"}
+      onChange={() => setSelectedAccountType("Business")}
+      className="mr-2"
+    />
+    Business
+  </label>
+</div>
         </>
       ) : (
         <>
@@ -220,7 +268,7 @@ const AuthForm = ({ formType, background }) => {
       )}
       {formType === "signUp" ? (
         <button
-          onClick={(event) => handleRegister(event, name, email, password)}
+          onClick={(event) => handleRegister(event, name, email, password, selectedAccountType)}
           className={`shadow-[0_0_5px_rgba(0,0,0,.5)] active:shadow-[inset_0_0_5px_rgba(0,0,0,.5)] rounded-xl py-2 px-8 mt-8 md:mt-4 active:scale-[.98] ${`bg-[#240046] text-white hover:bg-white hover:text-[#240046]`}`}
         >
           {" "}
@@ -294,7 +342,7 @@ const Login = () => {
 
   return (
     <div
-      className={`flex flex-col items-center justify-center h-screen bg-[#f2ebfb]`}
+      className={`flex flex-col items-center h-screen bg-[#f2ebfb]`}
     >
       {/* Particles */}
       <div className="fixed -bottom-full md:-bottom-1/4">
