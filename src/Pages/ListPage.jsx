@@ -13,8 +13,7 @@ const ListPage = () => {
         { text: "Listings", link: "/List", active: true },
         { text: "Forums", link: "/Forums" },
         { text: "FX Careers", link: "/" },
-        { text: "Profile", link: "/" },
-        { text: "Chats", link: "/" },
+        { text: "Profile", link: "/Profile" },
         // Add more navigation items as needed
       ],
       link: "/login",
@@ -67,9 +66,9 @@ const ListPage = () => {
   ];
 
   return (
-    <div className="App min-h-[100vh] sticky top-0">
+    <div className="App sticky top-0">
       <Navbar1 navbarData={siteData.navbarData} />
-      <div className="absolute z-[-1] h-full w-full">
+      <div className="absolute top-0 z-[-1] h-full w-full">
         <Background />
       </div>
       <div className="h-full w-full">

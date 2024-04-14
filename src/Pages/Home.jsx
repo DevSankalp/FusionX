@@ -28,7 +28,7 @@ function Home() {
         { text: "Listings", link: "/List" },
         { text: "Forums", link: "/Forums" },
         { text: "FX Careers", link: "/" },
-        { text: "Profile", link: "/" },
+        { text: "Profile", link: "/Profile" },
         // Add more navigation items as needed
       ],
       link: "/Login",

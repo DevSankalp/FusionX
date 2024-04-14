@@ -98,18 +98,20 @@
   color: #000;
 }
 
-.glassmorph {
-  backdrop-filter: blur(4px) saturate(180%);
-  -webkit-backdrop-filter: blur(4px) saturate(180%);
-  box-shadow: 0px 0px 10px #9ea4b2;
-}
+@media screen and (max-width: 480px) {
+  .glassmorph {
+    backdrop-filter: blur(4px) saturate(180%);
+    -webkit-backdrop-filter: blur(4px) saturate(180%);
+    box-shadow: 0px 0px 10px #9ea4b2;
+  }
 
-.glassmorph1::before {
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 0;
-  border-top-right-radius: 12px;
-  border-top-left-radius: 12px;
+  .glassmorph1::before {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 0;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+  }
 }
 
 /* Radio-Btn */

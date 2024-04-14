@@ -56,7 +56,7 @@ function Sidebar({ filterData, activeFilter, setActiveFilter }) {
       } `}
     >
       <div
-        className="flex flex-col h-full w-2/3 md:w-full bg-[#fff] glassmorph md:shadow-none"
+        className="flex flex-col h-full w-2/3 md:w-full bg-[#fff] glassmorph"
         ref={filtersRef}
       >
         <div className="mr-4 border-b-[1px] border-[#ccc]">

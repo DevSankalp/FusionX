@@ -41,7 +41,7 @@ const Navbar1 = ({ navbarData }) => {
   );
 
   return (
-    <Navbar className="text-['inherit'] top-0 fixed z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4 border-0">
+    <Navbar className="text-['inherit'] top-0 sticky z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4 border-0">
       <div className="flex items-center justify-between pl-4 text-blue-gray-900">
         <div className="flex items-center gap-4">
           <Typography

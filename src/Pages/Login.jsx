@@ -258,8 +258,7 @@ const Login = () => {
     },
     {
       title: "New Here !",
-      description:
-        "Register with your personal details to use all site features",
+      description: "Register with your details to use all site features",
       buttonText: "Sign Up",
       id: "register",
     },
@@ -269,12 +268,10 @@ const Login = () => {
     navbarData: {
       logoText: "FusionX",
       navItems: [
-        { text: "Home", link: "/", active: true },
+        { text: "Home", link: "/" },
         { text: "Listings", link: "/List" },
         { text: "Forums", link: "/Forums" },
         { text: "FX Careers", link: "/" },
-        { text: "Profile", link: "/" },
-        { text: "Chats", link: "/" },
         // Add more navigation items as needed
       ],
       link: null,

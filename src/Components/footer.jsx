@@ -12,7 +12,7 @@ function Footer({ data }) {
   } = data;
 
   return (
-    <footer className="flex flex-col items-center py-8 md:pt-12 md:pb-4 glassmorph bg-[rgba(255,255,255)]">
+    <footer className="flex flex-col items-center py-8 md:pt-12 md:pb-4 glassmorph bg-[rgba(255,255,255)] relative">
       <div className="w-[90%] flex flex-col gap-6 sm:gap-0 sm:flex-row items-center sm:items-start justify-between border-y-[1px] border-[rgba(0,0,0,.5)] p-8 md:p-16 md:pb-24">
         <Typography
           as="a"

@@ -7,16 +7,19 @@ import {
 } from "react-icons/ai";
 
 function Feeds({ feedData, tabs }) {
-  const [activeTab, setActiveTab] = useState(1);
-  var currentTab = (activeTab - 1) * 20;
+  // const [activeTab, setActiveTab] = useState(1);
+  // var currentTab = (activeTab - 1) * 20;
   return (
-    <section className="flex flex-col gap-4 md:gap-6 relative">
-      <div className="grid grid-rows-1 grid-cols-5 items-center justify-between sticky top-0 z-10 w-full bg-white">
+    <section
+      className="flex flex-col gap-4 md:gap-6 relative"
+      data-lenis-prevent
+    >
+      {/* <div className="grid grid-rows-1 grid-cols-5 items-center justify-between sticky top-0 z-10 w-full bg-white">
         <div
           className={`absolute w-1/5 h-full bg-[#a6f962] rounded-lg transition-all ease-linear duration-300`}
           style={{ left: `${currentTab}%` }}
         ></div>
-        {/* {Object.keys(tabs).map((tabKey) => (
+        {Object.keys(tabs).map((tabKey) => (
           <Link
             key={tabKey}
             className={`flex items-center justify-center text-center z-[1] p-2 duration-500 text-[12px] md:text-[16px] mx-2 ${
@@ -26,8 +29,8 @@ function Feeds({ feedData, tabs }) {
           >
             {tabs[tabKey].title}
           </Link>
-        ))} */}
-      </div>
+        ))}
+      </div> */}
       {Object.keys(feedData).map((key, index) => {
         const data = feedData[key];
         return (

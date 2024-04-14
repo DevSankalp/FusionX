@@ -12,19 +12,6 @@ body {
   scroll-behavior: smooth;
 }
 
-.glassmorph {
-  backdrop-filter: blur(4px) saturate(180%);
-  -webkit-backdrop-filter: blur(4px) saturate(180%);
-  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
-}
-
 ::-webkit-scrollbar {
-  width: 5px;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-::-webkit-scrollbar-thumb {
-  width: 4px;
-  background-color: #fff;
-  border-radius: 5px;
+  display: none;
 }
