@@ -27,7 +27,7 @@ function Home() {
         { text: "Home", link: "/", active: true },
         { text: "Listings", link: "/List" },
         { text: "Forums", link: "/Forums" },
-        { text: "FX Careers", link: "/" },
+        // { text: "FX Careers", link: "/" },
         // Add more navigation items as needed
       ],
       link: "/Login",

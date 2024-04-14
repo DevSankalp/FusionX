@@ -12,7 +12,7 @@ const ListPage = () => {
         { text: "Home", link: "/" },
         { text: "Listings", link: "/List", active: true },
         { text: "Forums", link: "/Forums" },
-        { text: "FX Careers", link: "/" },
+        // { text: "FX Careers", link: "/" },
         // Add more navigation items as needed
       ],
       link: "/login",

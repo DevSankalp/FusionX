@@ -24,7 +24,7 @@ function Profile() {
         { text: "Home", link: "/" },
         { text: "Listings", link: "/List" },
         { text: "Forums", link: "/Forums" },
-        { text: "FX Careers", link: "/" },
+        // { text: "FX Careers", link: "/" },
         // Add more navigation items as needed
       ],
       link: null,
