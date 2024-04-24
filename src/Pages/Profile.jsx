@@ -13,8 +13,6 @@ import {
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import image1 from "../Components/Assets/profile1.webp";
-import image2 from "../Components/Assets/demo1.png";
 
 function Profile() {
   const navbarData = {
@@ -34,8 +32,8 @@ function Profile() {
 
   const userData = {
     name: "John Doe",
-    bannerImage: "https://source.unsplash.com/random/1250x300/?poster",
-    profileImage: "https://source.unsplash.com/random/400x400/?businessman",
+    bannerImage: "https://source.unsplash.com/random/1250x300/?quotes",
+    profileImage: "https://source.unsplash.com/random/400x400/?profile",
     position: "Software Development Engineer",
     company: "Amazon Web Services",
     location: "London, United Kingdom",
@@ -87,28 +85,28 @@ function Profile() {
   };
 
   const icons = [FaLinkedinIn, SlSocialGithub, FaXTwitter];
-
+  console.log();
   return (
     <section>
       <Navbar1 navbarData={navbarData.navbarData} />
-      <div className="grid md:grid-cols-[83%_16%] gap-4 h-full pb-4 w-full bg-gray-100 px-4 pt-2">
-        <section className="flex flex-col min-h-[40vh] gap-2">
-          <div className="w-full min-h-1/3 bg-white rounded-xl">
+      <div className="grid md:grid-cols-[83%_16%] gap-4 h-full pb-4 w-full bg-gray-200 px-4 pt-4">
+        <section className="flex flex-col min-h-[40vh] gap-4">
+          <div className="w-full min-h-1/3 bg-white rounded-xl md:m-0 mt-16 pt-12 md:p-0">
             <div className="relative">
               <img
                 src={userData.bannerImage}
                 alt="banner_image"
-                className="max-w-[1250px] max-h-[360px] w-full rounded-xl"
+                className="hidden md:flex max-w-[1250px] max-h-[360px] w-full rounded-xl object-contain "
               />
               <img
                 src={userData.profileImage}
                 alt="profile_image"
-                className="absolute -bottom-20 left-8 rounded-full max-w-36 w-full border-4 border-white"
+                className="absolute md:-bottom-20 -bottom-10 left-0 md:left-8 rounded-full max-w-36 w-full border-4 border-white m-4"
               />
             </div>
-            <div className="flex flex-col md:ml-48 md:mt-8 ml-6 mt-20">
+            <div className="flex flex-col md:ml-48 mt-8 mx-4">
               <span className="md:text-3xl text-2xl font-bold">
-                {userData.name}
+                {auth.currentUser.displayName}
               </span>
               <span className="text-sm font-bold text-gray-600 my-1">
                 {userData.position}
@@ -116,11 +114,11 @@ function Profile() {
               <span className="text-sm font-bold text-gray-600">
                 {userData.location}
               </span>
-              <span className="flex items-center gap-2 my-6">
+              <span className="flex md:flex-row flex-col gap-2 my-4">
                 {userData.expertise.map((expertise, index) => (
                   <span
                     key={index}
-                    className="bg-gray-300 rounded-lg px-2 text-sm font-bold"
+                    className="bg-gray-300 rounded-lg px-2 text-sm font-bold w-max"
                   >
                     {expertise}
                   </span>
@@ -129,7 +127,9 @@ function Profile() {
             </div>
           </div>
           <div className="w-full bg-white rounded-xl p-6 flex flex-col ">
-            <span className="font-semibold mb-3">About</span>
+            <span className="font-semibold text-lg mb-2 before:absolute before:bg-black before:h-[2px] before:w-full before:bottom-0 relative ">
+              About
+            </span>
             <p className="text-gray-700 font-medium">{userData.about}</p>
           </div>
         </section>
@@ -154,7 +154,7 @@ function Profile() {
               </a>
             ))}
           </div>
-          <div className="w-full bg-white p-4 rounded-xl flex flex-col justify-center gap-2 md:m-0 mb-8">
+          <div className="w-full bg-white p-4 rounded-xl flex flex-col justify-center gap-2">
             <span className="font-semibold text-lg">Similar Profiles</span>
             <span className="flex flex-col justify-center gap-2 opacity-80">
               {userData.recommendations.map((rec, index) => (
@@ -169,7 +169,7 @@ function Profile() {
               ))}
             </span>
           </div>
-          <div className="w-full bg-white p-4 rounded-xl flex flex-col justify-center gap-2 md:m-0 mb-8">
+          <div className="w-full bg-white p-4 rounded-xl flex flex-col justify-center gap-2">
             <span className="font-semibold text-lg">Hiring Opportunities</span>
             <span className="flex flex-col justify-center gap-2 opacity-80">
               {userData.opportunities.map((opportunity, index) => (
